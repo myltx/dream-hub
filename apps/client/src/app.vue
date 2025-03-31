@@ -13,24 +13,20 @@
 
 <script setup lang="ts">
 import { getUserInfoByUserId } from '~/api/user';
-import {
-  getIdTokenClaims,
-  isAuthenticated,
-  isTokenExpired,
-} from './services/auth';
+import { fetchUserInfo, isTokenExpired } from './services/auth';
 import { useUserStore } from './store/user';
 import { createSiteAccessLog } from './api/log';
 
 const userStore = useUserStore();
 const { status } = useAsyncData('initApplication', async () => {
   if (await isTokenExpired()) {
-    const res = await getIdTokenClaims();
+    const user = await fetchUserInfo();
     const { data } = await getUserInfoByUserId({
-      userId: res?.sub as string,
+      userId: user?.sub as string,
     });
 
     userStore.initUser({
-      ...res,
+      ...user,
       userInfo: data,
     });
   }

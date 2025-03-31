@@ -32,7 +32,6 @@ export const useUserStore = defineStore('user', () => {
       nikeName: info.nikeName,
       avatar: info.avatar,
     });
-    console.log(res, 'rrr');
 
     user.value.userInfo.nikeName = info.nikeName;
     user.value.userInfo.avatar = info.avatar;

@@ -28,7 +28,6 @@ export async function getToken() {
 
 // token 是否过期
 export async function isTokenExpired() {
-  console.log(logto, 'logto');
   if (isAuthenticated()) {
     const token = await getToken();
     return !!token;
