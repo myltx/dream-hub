@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { data, error } = await useFetch('https://api.moyuhuashui.com/baidu/');
-console.log(data.value, 'data');
 const handleClick = (data: any) => {
   window.open(data.url, '_blank');
 };
