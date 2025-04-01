@@ -1,6 +1,12 @@
 <template>
-  <div class="mt-4">
-    <UDivider :label="$config.public.projectName" />
+  <div
+    class="text-center text-gray-500 text-sm"
+    :class="isMobile() ? 'pt-1' : 'py-2'"
+  >
+    <!-- <UDivider :label="$config.public.projectName" :ui="{
+
+    }" /> -->
+    {{ $config.public.projectName }}
   </div>
 </template>
 

@@ -115,6 +115,16 @@ export class WebsiteController {
     });
   }
 
+  @ApiOperation({ summary: '获取所有站点' })
+  @HttpCode(HttpStatus.OK)
+  @IsPublic()
+  @Get('queryAllGroup')
+  async findAllWebsite(@Request() req: any) {
+    return this.websiteService.findByQueryGroupAll({
+      user_id: req?.user?.sub,
+    });
+  }
+
   @ApiOperation({ summary: '获取站点排名' })
   @HttpCode(HttpStatus.OK)
   @IsPublic()

@@ -531,29 +531,36 @@ defineExpose({
 .mc-textarea {
   font-size: 14px !important;
 }
+
 /* 暗黑模式 */
 .dark .container {
-  background: #1f1f1f;
+  background: var(--background-color);
   border: 1px solid #333;
   color: #fff;
 }
+
 .dark .input-foot-wrapper {
   color: #fff;
 }
+
 .dark .mc-introduction {
   color: #fff;
 }
+
 .dark .mc-list .filled {
   background: rgba(0, 0, 0, 0.5) !important;
   color: #fff;
 }
+
 .dark .devui-textarea {
   background: rgba(0, 0, 0, 0.5) !important;
   color: #fff;
 }
+
 .dark .mc-prompt-item-content:hover {
   color: rgba(255, 255, 255, 0.5);
 }
+
 .dark .mc-bubble .filled {
   background: rgba(0, 0, 0, 0.5) !important;
   color: #fff;
@@ -562,6 +569,7 @@ defineExpose({
 .devui-button--outline--secondary:disabled {
   /* background: rgba(200, 200, 200, 0.5) !important; */
 }
+
 .devui-button {
   /* background: rgba(0, 0, 0, 0.5) !important; */
   color: #fff;
@@ -571,6 +579,7 @@ defineExpose({
   background: rgba(200, 200, 200, 0.3) !important;
   color: rgba(255, 255, 255, 0.9) !important;
 }
+
 .hljs {
   padding: 10px;
 }
@@ -581,6 +590,7 @@ defineExpose({
   gap: 8px;
   overflow: auto;
 }
+
 .mobile-layout {
   flex: 0.9 !important;
 }

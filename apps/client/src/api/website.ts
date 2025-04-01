@@ -65,6 +65,13 @@ export function getWebsiteQueryAll(params: any) {
   });
 }
 
+export function getWebsiteQueryAllGroup() {
+  const http = getHttp();
+  return http(`${ServicePrefixEnum.WEBSITE}/queryAllGroup`, {
+    method: RequestEnum.GET,
+  });
+}
+
 export function getRanking() {
   const http = getHttp();
   return http(`${ServicePrefixEnum.WEBSITE}/ranking`, {

@@ -182,7 +182,7 @@ const onFileChange = (e: any) => {
     :ui="{
       item: { disabled: 'cursor-text select-text', base: 'group z-90' },
       background: 'bg-white dark:bg-gray-800',
-      container: 'z-20 group',
+      container: 'group',
     }"
     :popper="{ placement: 'bottom-start' }"
   >

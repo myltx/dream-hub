@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="flex items-center justify-between static top-0 h-14 shadow dark:shadow-white-500 50 backdrop-blur dark:bg-transparent transition-all py-3 px-4"
+    class="flex items-center justify-between h-14 dark:shadow-otherBgColor 50 backdrop-blur dark:bg-bgColor transition-all py-3 px-4 b-b-1 b-gray-100 dark:b-b-otherBgColor z-[20] fixed w-100%"
   >
     <div class="flex items-center">
       <HeaderComponentsLogo />

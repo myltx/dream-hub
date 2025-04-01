@@ -1,4 +1,7 @@
 export default defineNuxtConfig({
+  css: [
+    '~/assets/css/global.css', // 引入 global.css 文件
+  ],
   experimental: {
     viewTransition: true,
   },

@@ -1,0 +1,74 @@
+/* global.css */
+@font-face {
+  font-family: 'ZiKuJiangHuGuFengTi';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/ZiKuJiangHuGuFengTi-2.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'YeZiGongChangXiaoShiTou';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/YeZiGongChangXiaoShiTou-2.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ZiKuXingQiuFeiYangTi';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/ZiKuXingQiuFeiYangTi-2.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceHanSansSC-Bold-2';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/SiYuanHeiTi/SourceHanSansSC-Bold-2.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceHanSansSC-ExtraLight-2';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/SiYuanHeiTi/SourceHanSansSC-ExtraLight-2.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceHanSansSC-Heavy-2';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/SiYuanHeiTi/SourceHanSansSC-Heavy-2.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceHanSansSC-Light-2';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/SiYuanHeiTi/SourceHanSansSC-Light-2.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceHanSansSC-Medium-2';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/SiYuanHeiTi/SourceHanSansSC-Medium-2.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceHanSansSC-Normal-2';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/SiYuanHeiTi/SourceHanSansSC-Normal-2.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceHanSansSC-Regular-2';
+  src: url('https://xcwhdikndfrizmrtxyiy.supabase.co/storage/v1/object/public/dream-hub/public/font/SiYuanHeiTi/SourceHanSansSC-Regular-2.otf') format('truetype');
+}
+
+:root {
+  --primary-color: #005dfa;
+  --secondary-color: #87bffc;
+  --background-color: #ffffff;
+  --other-bg-color: #eef0f3;
+  --text-color: #fff;
+  --b-color: #eee;
+}
+
+[data-theme="dark"] {
+  /* --primary-color: #a76fdc; */
+  --primary-color: #005dfa;
+  --secondary-color: #ff80ab;
+  --background-color: #262A33;
+  --other-bg-color: #60646B;
+  /* --other-bg-color: #a76fdc; */
+  --text-color: #ffffff;
+  --b-color: rgba(255,255,255, .2);
+}
+
+html, body {
+  font-family: 'SourceHanSansSC-Regular-2', sans-serif;
+}

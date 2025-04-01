@@ -4,6 +4,7 @@ const colorMode = useColorMode();
 // 切换模式
 const setColorMode = () => {
   colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', colorMode.value);
 };
 
 // 判断是否支持 startViewTransition API
@@ -42,6 +43,11 @@ async function toggleDark({ clientX: x, clientY: y }: MouseEvent) {
     }
   );
 }
+
+// 在页面加载时，设置主题
+onMounted(() => {
+  document.documentElement.setAttribute('data-theme', colorMode.value);
+});
 </script>
 
 <template>
