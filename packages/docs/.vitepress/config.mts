@@ -29,6 +29,7 @@ export default defineConfig({
                 items: [
                   { text: '开发说明', link: '/guide/api-reference' },
                   { text: 'Supabase配置', link: '/guide/supabase-reference' },
+                  { text: 'Logto配置', link: '/guide/logto-referenc' },
                 ],
               },
             ],
