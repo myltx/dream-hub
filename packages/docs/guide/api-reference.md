@@ -5,7 +5,7 @@ title: 后端文档-开发说明
 # 🚀 后端文档说明
 
 本说明文档将帮助你了解如何配置、运行和使用 **Dream Hub** 后端服务。后端使用 [**NestJS**](https://nestjs.com/) 开发，并与 **Supabase** 和 **Logto** 进行集成。
-接口采用 **REST API**，支持跨域请求。
+接口采用 **REST API**，支持跨域请求。[源码地址](https://github.com/myltx/drema-hub-api)
 
 ## 📌 1. 后端架构
 
@@ -51,11 +51,13 @@ REDIS_URL=
 PORT=8081
 
 # logto 配置
-LOGTO_ENDPOINT=h
+LOGTO_ENDPOINT=
 LOGTO_APP_ID=
 # LOGTO_ENDPOINT=
 # LOGTO_APP_ID=
 BACKEND_ENDPOINT=
+LOGTO_CLIENT_ID=
+LOGTO_CLIENT_SECRET=
 ```
 
 ::: warning **注意**
