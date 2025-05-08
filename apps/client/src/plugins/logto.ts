@@ -14,6 +14,8 @@ export default defineNuxtPlugin((nuxtApp) => {
       UserScope.CustomData,
       UserScope.Identities,
       UserScope.Organizations,
+      UserScope.Profile,
+      UserScope.Roles,
     ],
     resources: [runtimeConfig?.public.backendEndpoint],
   };
