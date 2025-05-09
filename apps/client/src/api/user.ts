@@ -32,3 +32,10 @@ export function getUserInfoByUserId(data: { userId: string }) {
     body: data,
   });
 }
+
+export function checkAdmin() {
+  const http = getHttp();
+  return http(`${ServicePrefixEnum.USER}/checkAdmin`, {
+    method: RequestEnum.GET,
+  });
+}

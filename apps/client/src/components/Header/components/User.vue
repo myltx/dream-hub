@@ -107,12 +107,8 @@ watchEffect(async () => {
   showItems.value = items
     .map((subArr) =>
       subArr.filter((item) => {
-        if (
-          item.key === 'admin' &&
-          item.show &&
-          user.value?.userInfo?.roles?.includes('admin')
-        ) {
-          return token.value;
+        if (item.key === 'admin' && item.show) {
+          return user.value?.roles?.includes('管理员');
         } else {
           return item.show;
         }
@@ -127,6 +123,11 @@ onMounted(async () => {
 const handleDropdownItemClick = (item: DropdownItem) => {
   switch (item.key) {
     case 'admin':
+      if (!isAuthenticated()) {
+        signIn();
+        return;
+      }
+
       router.push('/admin');
       return;
     case 'signOut':
@@ -211,7 +212,7 @@ const onFileChange = (e: any) => {
 
     <template #item="{ item }">
       <div
-        class="w-100% flex items-center justify-between z-90"
+        class="w-[100%] flex items-center justify-between z-90"
         @click="handleDropdownItemClick(item)"
       >
         <span class="truncate">{{ item.label }}</span>
@@ -239,7 +240,7 @@ const onFileChange = (e: any) => {
       />
     </div>
 
-    <div class="h-90%">
+    <div class="h-[90%]">
       <UForm
         ref="form"
         :validate="validate"

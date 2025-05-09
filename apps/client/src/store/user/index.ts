@@ -8,6 +8,7 @@ export interface User {
   email: string;
   avatar: string;
   token: string;
+  roles: string[];
   userInfo: {
     id: string;
     avatar: string;
