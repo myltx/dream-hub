@@ -19,7 +19,7 @@ export function getSiteAccessLog() {
 
 export function getSiteAccessInterViewCount() {
   const http = getHttp();
-  return http(`${ServicePrefixEnum.SITE_ACCESS_LOG}/count`, {
+  return http(`${ServicePrefixEnum.SITE_ACCESS_LOG}/totalVisits`, {
     method: RequestEnum.GET,
   });
 }

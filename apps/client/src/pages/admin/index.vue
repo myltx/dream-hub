@@ -34,7 +34,7 @@ const moduleList = ref([
 
 const getVisitCount = () => {
   getSiteAccessInterViewCount().then((res) => {
-    visitAllCount.value = res.data;
+    visitAllCount.value = res.data?.totalVisits || 0;
   });
 };
 getVisitCount();
@@ -65,7 +65,7 @@ const toLink = (link: string) => {
   </div>
   <!-- 快捷导航 -->
   <div
-    class="w-30% light:bg-white dark:bg-#101726 rounded-lg p-4 shadow-md mt-4"
+    class="w-[30%] light:bg-white dark:bg-[#101726] rounded-lg p-4 shadow-md mt-4"
   >
     <div class="text-xl font-bold mb-4 flex items-center">
       <Icon name="icon-park-outline:all-application" class="text-xl mr-1" />
@@ -73,7 +73,7 @@ const toLink = (link: string) => {
     </div>
     <div class="grid grid-cols-2 gap-4">
       <div
-        class="flex flex-col items-center justify-center cursor-pointer rounded-lg p-4 border-1 cursor-pointer hover:transition-all duration-300 hover:shadow-md"
+        class="flex flex-col items-center justify-center cursor-pointer rounded-lg p-4 border cursor-pointer hover:transition-all duration-300 hover:shadow-md"
         v-for="item in moduleList"
         :key="item.name"
         @click="toLink(item.link)"
