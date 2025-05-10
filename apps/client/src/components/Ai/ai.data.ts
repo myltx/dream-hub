@@ -1,5 +1,5 @@
 export const aiConfigKey = 'aiConfig';
-import LogoImage from '@/assets/images/logo 32x32.png';
+import LogoImage from '@/assets/images/logo-32x32.png';
 
 export const simplePrompt = [
   //   {
