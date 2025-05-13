@@ -7,6 +7,7 @@ import { useDialog } from '~/components/BasicDialog';
 import { isAuthenticated, signIn } from '~/services/auth';
 
 import { useScrollWatcher } from '@/composables/useScrollWatcher';
+import { useUserStore } from '~/store/user';
 
 const { selectedAnchor, scrollToSection, observeTitles } = useScrollWatcher();
 
@@ -17,6 +18,8 @@ interface Category {
 interface Website {
   [key: string]: any;
 }
+
+const { user } = storeToRefs(useUserStore());
 const categorys = ref<Category[]>([]);
 const activeTab = ref(-1);
 const websites = ref<Website[]>([]);
@@ -73,7 +76,7 @@ const goLink = (data: any) => {
   window.open(data.url, '_blank');
 };
 const getWebSites = () => {
-  getWebsiteQueryAllGroup().then((res) => {
+  getWebsiteQueryAllGroup(user.value?.sub).then((res) => {
     websites.value = res.data.groupedData;
     categorys.value = res.data.groupedData.map((item: any) => item.categories);
     loading.value = false;
@@ -129,13 +132,13 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="h-100% flex justify-between w-full">
+  <div class="h-[100%] flex justify-between w-full">
     <div class="bg-bgColor px-4 w-80 py-2" v-if="!isMobile()">
       <div
-        class="cursor-pointer py-2 flex items-center gap-2 hover:text-#fff hover:bg-#0066FF hover:rounded-3 hover:font-bold px-1"
+        class="cursor-pointer py-2 flex items-center gap-2 hover:text-[#fff] hover:bg-[#0066FF] hover:rounded-3 hover:font-bold px-1"
         :class="
           selectedAnchor === `${categoriesKey}${link.id}`
-            ? 'text-#fff font-heavy bg-#0066FF rounded-3 font-bold mb-1'
+            ? 'text-[#fff] font-heavy bg-[#0066FF] rounded-3 font-bold mb-1'
             : 'color-gray-600'
         "
         @click="scrollToSection(`${categoriesKey}${link.id}`)"
@@ -145,7 +148,7 @@ onMounted(async () => {
         <UIcon name="i-heroicons-light-bulb" class="w-5 h-5" /> {{ link.name }}
       </div>
     </div>
-    <div class="flex-grow-1 h-100% bg-transparent">
+    <div class="flex-grow-1 h-[100%] bg-transparent">
       <!-- 内容区顶部 -->
       <!-- web端选择器样式 -->
       <div
@@ -156,33 +159,33 @@ onMounted(async () => {
           <div
             class="flex-1 h-32 rounded-4 color-textColor h-26 font-zk-qfy text-15 flex items-center justify-center cursor-pointer item"
           >
-            <img src="@/assets/images/1.png" alt="" class="h-100% w-100%" />
+            <img src="@/assets/images/1.png" alt="" class="h-[100%] w-[100%]" />
           </div>
           <div
             class="flex-1 h-32 rounded-4 color-textColor h-26 font-zk-qfy text-15 flex items-center justify-center cursor-pointer item"
           >
-            <img src="@/assets/images/2.png" alt="" class="h-100% w-100%" />
+            <img src="@/assets/images/2.png" alt="" class="h-[100%] w-[100%]" />
           </div>
           <div
             class="flex-1 h-32 rounded-4 color-textColor h-26 font-zk-qfy text-15 flex items-center justify-center cursor-pointer item"
           >
-            <img src="@/assets/images/3.png" alt="" class="h-100% w-100%" />
+            <img src="@/assets/images/3.png" alt="" class="h-[100%] w-[100%]" />
           </div>
           <div
             class="flex-1 h-32 rounded-4 color-textColor h-26 font-zk-qfy text-15 flex items-center justify-center cursor-pointer item"
           >
-            <img src="@/assets/images/4.png" alt="" class="h-100% w-100%" />
+            <img src="@/assets/images/4.png" alt="" class="h-[100%] w-[100%]" />
           </div>
         </div>
         <HotSpot />
       </div>
       <!-- 移动端选择器样式 -->
       <div
-        class="px-2 mt-2 h-auto shadow-md rounded-lg w-100vw overflow-x-hidden"
+        class="px-2 mt-2 h-auto shadow-md rounded-lg w-[100vw] overflow-x-hidden"
         v-else
       >
         <div
-          class="w-99% flex items-center whitespace-nowrap overflow-x-auto h-100% py-2"
+          class="w-[99%] flex items-center whitespace-nowrap overflow-x-auto h-[100%] py-2"
         >
           <div
             v-for="tab in categorys"
@@ -191,7 +194,7 @@ onMounted(async () => {
             class="tab p-5 cursor-pointer text-4 h-10 rounded-5 flex items-center justify-center mr-3 bg-bgColor shadow hover:text-blue hover:font-500"
             :class="[
               activeTab === tab.id
-                ? 'text-blue-500 border-blue-500 font-500'
+                ? 'text-blue-500 border-blue-500 font-medium'
                 : 'text-gray-500 border-gray-500',
             ]"
             @click="onChangeTab(tab.id)"
@@ -202,7 +205,7 @@ onMounted(async () => {
       </div>
       <div
         class="overflow-y-auto bg-otherBgColor pb-5"
-        :class="isMobile() ? 'h-92%  px-8' : 'h-76% px-30'"
+        :class="isMobile() ? 'h-[92%]  px-8' : 'h-[76%] px-30'"
       >
         <div
           class=""
@@ -252,7 +255,7 @@ onMounted(async () => {
                   </div>
                 </div>
                 <p
-                  class="text-slate-500 text-3 mt-2 font-500 tracking-1px overflow-hidden line-clamp-2 h-9"
+                  class="text-slate-500 text-3 mt-2 font-medium tracking-[1px] overflow-hidden line-clamp-2 h-9"
                 >
                   {{ website.description }}
                 </p>

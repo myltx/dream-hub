@@ -65,9 +65,9 @@ export function getWebsiteQueryAll(params: any) {
   });
 }
 
-export function getWebsiteQueryAllGroup() {
+export function getWebsiteQueryAllGroup(userId: string) {
   const http = getHttp();
-  return http(`${ServicePrefixEnum.WEBSITE}/queryAllGroup`, {
+  return http(`${ServicePrefixEnum.WEBSITE}/queryAllGroup?userId=${userId}`, {
     method: RequestEnum.GET,
   });
 }
