@@ -32,7 +32,7 @@ const isOpen = ref(false);
 const password = ref('');
 const apiConfig = ref({
   apiKey: '',
-  baseUrl: 'https://api.openai.com',
+  baseUrl: 'https://api.moleapi.com',
 });
 const startPage = ref(true);
 const inputValue = ref('');
@@ -47,7 +47,7 @@ if (localstorageAiConfig) {
   password.value = config.password;
   apiConfig.value = {
     apiKey: config.apiConfig.apiKey || '', // 模型APIKey
-    baseUrl: config.apiConfig.baseUrl || 'https://api.openai.com', // 模型API地址
+    baseUrl: config.apiConfig.baseUrl || 'https://api.moleapi.com', // 模型API地址
   };
 } else if (user.value?.userInfo.roles.includes('admin')) {
   apiConfig.value = {
@@ -189,6 +189,7 @@ const onSubmit = (evt: string) => {
 };
 
 const fetchData = async (ques) => {
+  console.log('ques', ques);
   messages.value.push({
     from: 'model',
     content: '',
@@ -197,7 +198,8 @@ const fetchData = async (ques) => {
     loading: true,
   });
   const completion = await client.value!.chat.completions.create({
-    model: 'gpt-3.5-turbo', // 替换为自己的model名称
+    // model: 'gpt-3.5-turbo', // 替换为自己的model名称
+    model: 'deepseek-chat',
     messages: [{ role: 'user', content: ques }],
     stream: true, // 为 true 则开启接口的流式返回
   });
@@ -398,7 +400,7 @@ defineExpose({
         ></McPrompt> -->
         <UPopover>
           <div
-            class="flex items-center text-3 font-500 color-gray-500 cursor-pointer"
+            class="flex items-center text-3 font-medium color-gray-500 cursor-pointer"
           >
             <Icon
               name="streamline-emojis:wrench"
@@ -414,7 +416,7 @@ defineExpose({
               "
             >
               <div
-                class="flex items-center gap-2 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-500 cursor-pointer b-1 b-gray-200"
+                class="flex items-center gap-2 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-500 cursor-pointer border b-gray-200"
                 v-for="(item, index) in intimate"
                 :key="index"
                 @click="onSubmit(item.prompt)"
